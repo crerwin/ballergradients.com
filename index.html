@@ -5,11 +5,47 @@
       body {
         margin: 0px;
         padding: 0px;
+        background-color: dimgray;
+        color: silver;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      #button_area {
+        height: 200px;
+      }
+      #button_wrapper {
+        height: 30px;
+        text-align: center;
+      }
+      button {
+        position: relative;
+      }
+      #gradient {
+        width: 400px;
+        height: 400px;
+        margin: 0px auto;
+        border: 1px solid black;
       }
     </style>
   </head>
   <body>
-    <canvas id="gradientCanvas" width="750" height="750"></canvas>
+    <div id="title_area">
+      <h1>Baller Gradients</h1>
+      <h2 align="center">Your source for the freshest gradients on the web</h2>
+    </div>
+    <div id="button_area">
+      <div id="button_wrapper">
+        <button type="button" onclick="newGradient()">Dope!  Hit me again.</button>
+      </div>
+    </div>
+    <div id="gradient">
+      <canvas id="gradientCanvas" width="400" height="400"></canvas>
+    </div>
     <script>
       function randColor(){
         var letters = '0123456789ABCDEF'.split('');
