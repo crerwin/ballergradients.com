@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gradientCanvas" width="1000" height="1000"></canvas>
+    <script>
+      function randColor(){
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      function randGradient(){
+        var direction = Math.floor(Math.random() * 2);
+        if (direction == 0) {
+          return context.createLinearGradient(0, 0, canvas.width, canvas.height);
+        } else {
+          return context.createLinearGradient(0, canvas.height, canvas.width, 0);
+        }
+      }
+
+      var canvas = document.getElementById('gradientCanvas');
+      var context = canvas.getContext('2d');
+      context.rect(0, 0, canvas.width, canvas.height);
+
+      // add linear gradient
+      var grd = randGradient(canvas);
+      // light blue
+      grd.addColorStop(0, randColor());
+      // dark blue
+      grd.addColorStop(1, randColor());
+      context.fillStyle = grd;
+      context.fill();
+    </script>
+  </body>
+</html>
