@@ -1,3 +1,12 @@
+language: python
+
+python:
+  - "3.4"
+
+script:
+  - mkdir build
+  - cp *.html build
+
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
@@ -5,5 +14,6 @@ deploy:
   bucket: ballergradients.com
   endpoint: ballergradients.com.s3-website-us-east-1.amazonaws.com
   region: us-east-1
-  acl: public_read
+  skip_cleanup: true
+  local_dir: build
   detect_encoding: true
