@@ -65,18 +65,23 @@
         }
       }
 
+      function newGradient(){
+        // add linear gradient
+        var grd = randGradient(canvas);
+        // light blue
+        grd.addColorStop(0, randColor());
+        // dark blue
+        grd.addColorStop(1, randColor());
+        context.fillStyle = grd;
+        context.fill();
+      }
+
       var canvas = document.getElementById('gradientCanvas');
       var context = canvas.getContext('2d');
       context.rect(0, 0, canvas.width, canvas.height);
+      newGradient();
 
-      // add linear gradient
-      var grd = randGradient(canvas);
-      // light blue
-      grd.addColorStop(0, randColor());
-      // dark blue
-      grd.addColorStop(1, randColor());
-      context.fillStyle = grd;
-      context.fill();
+
     </script>
   </body>
 </html>
